@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Eye, EyeOff, Mail, Lock, User } from 'lucide-react'
 
 export default function SignUp() {
@@ -16,7 +17,10 @@ export default function SignUp() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 p-4">
+      <div className="absolute top-4 right-4">
+        <ThemeToggle />
+      </div>
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl text-center">
@@ -32,7 +36,7 @@ export default function SignUp() {
               Username
             </label>
             <div className="relative">
-              <User className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
+              <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
                 id="username"
                 type="text"
@@ -46,7 +50,7 @@ export default function SignUp() {
               Email
             </label>
             <div className="relative">
-              <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
+              <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
                 id="email"
                 type="email"
@@ -60,7 +64,7 @@ export default function SignUp() {
               Password
             </label>
             <div className="relative">
-              <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
+              <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
                 id="password"
                 type={showPassword ? 'text' : 'password'}
@@ -70,7 +74,7 @@ export default function SignUp() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-3 h-4 w-4 text-gray-500 hover:text-gray-700"
+                className="absolute right-3 top-3 h-4 w-4 text-muted-foreground hover:text-foreground"
               >
                 {showPassword ? <EyeOff /> : <Eye />}
               </button>
@@ -81,7 +85,7 @@ export default function SignUp() {
               Confirm Password
             </label>
             <div className="relative">
-              <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
+              <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
                 id="confirmPassword"
                 type={showConfirmPassword ? 'text' : 'password'}
@@ -91,7 +95,7 @@ export default function SignUp() {
               <button
                 type="button"
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                className="absolute right-3 top-3 h-4 w-4 text-gray-500 hover:text-gray-700"
+                className="absolute right-3 top-3 h-4 w-4 text-muted-foreground hover:text-foreground"
               >
                 {showConfirmPassword ? <EyeOff /> : <Eye />}
               </button>
@@ -101,15 +105,15 @@ export default function SignUp() {
             <input
               type="checkbox"
               id="terms"
-              className="rounded border-gray-300"
+              className="rounded border-input"
             />
             <label htmlFor="terms" className="text-sm">
               I agree to the{' '}
-              <Link to="/terms" className="text-blue-600 hover:underline">
+              <Link to="/terms" className="text-primary hover:underline">
                 Terms of Service
               </Link>{' '}
               and{' '}
-              <Link to="/privacy" className="text-blue-600 hover:underline">
+              <Link to="/privacy" className="text-primary hover:underline">
                 Privacy Policy
               </Link>
             </label>
@@ -117,7 +121,7 @@ export default function SignUp() {
           <Button className="w-full">Create Account</Button>
           <div className="text-center text-sm">
             Already have an account?{' '}
-            <Link to="/signin" className="text-blue-600 hover:underline">
+            <Link to="/signin" className="text-primary hover:underline">
               Sign in
             </Link>
           </div>

@@ -9,13 +9,17 @@ import {
 } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Eye, EyeOff, Mail, Lock } from 'lucide-react'
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false)
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 p-4">
+      <div className="absolute top-4 right-4">
+        <ThemeToggle />
+      </div>
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl text-center">Welcome back</CardTitle>
@@ -29,7 +33,7 @@ export default function SignIn() {
               Email
             </label>
             <div className="relative">
-              <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
+              <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
                 id="email"
                 type="email"
@@ -43,7 +47,7 @@ export default function SignIn() {
               Password
             </label>
             <div className="relative">
-              <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
+              <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
                 id="password"
                 type={showPassword ? 'text' : 'password'}
@@ -53,7 +57,7 @@ export default function SignIn() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-3 h-4 w-4 text-gray-500 hover:text-gray-700"
+                className="absolute right-3 top-3 h-4 w-4 text-muted-foreground hover:text-foreground"
               >
                 {showPassword ? <EyeOff /> : <Eye />}
               </button>
@@ -63,7 +67,7 @@ export default function SignIn() {
             <input
               type="checkbox"
               id="remember"
-              className="rounded border-gray-300"
+              className="rounded border-input"
             />
             <label htmlFor="remember" className="text-sm">
               Remember me
@@ -72,7 +76,7 @@ export default function SignIn() {
           <Button className="w-full">Sign In</Button>
           <div className="text-center text-sm">
             Don't have an account?{' '}
-            <Link to="/signup" className="text-blue-600 hover:underline">
+            <Link to="/signup" className="text-primary hover:underline">
               Sign up
             </Link>
           </div>
