@@ -1,0 +1,13 @@
+/* Make the score words bold and align them */
+.custom-psb .password-strength-bar > span {
+  font-weight: bold !important;
+  float: right;
+  line-height: 14px; /* Vertically align with the thicker bar */
+}
+
+/* Make the progress bar thicker */
+.custom-psb .progress {
+  height: 14px !important;
+  border-radius: 6px;
+  margin-top: 5px;
+}
