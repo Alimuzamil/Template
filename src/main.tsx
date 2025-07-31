@@ -4,16 +4,19 @@ import './styles/globals.css'
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from '@/components/ui/ThemeProvider'
+import ErrorBoundary from '@/components/ui/ErrorBoundary'
 
 const rootElement = document.getElementById('root')
 if (!rootElement) throw new Error('Failed to find the root element')
 
 createRoot(rootElement).render(
   <React.StrictMode>
-    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ThemeProvider>
+    <ErrorBoundary>
+      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
+    </ErrorBoundary>
   </React.StrictMode>
 )
